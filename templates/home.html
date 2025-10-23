@@ -1,4 +1,23 @@
 {% extends "base.html" %}
-{% block body %}
-    
+{% block content %}
+<h2>Welcome, {{ user.username }}</h2>
+<p>Average BMI: {{ avg_bmi }}</p>
+<a href="{% url 'add_student' %}" class="btn btn-success mb-2">Add Student</a>
+<table class="table table-bordered">
+  <thead>
+    <tr><th>ID</th><th>Name</th><th>Height</th><th>Weight</th><th>BMI</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+  {% for s in students %}
+    <tr>
+      <td>{{ s.student_id }}</td>
+      <td><a href="{% url 'student_detail' s.id %}">{{ s.name }}</a></td>
+      <td>{{ s.height_cm }}</td>
+      <td>{{ s.weight_kg }}</td>
+      <td>{{ s.bmi }}</td>
+      <td>{{ s.bmi_status }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
 {% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ student.name }}</h2>
+<p><b>ID:</b> {{ student.student_id }}</p>
+<p><b>Height:</b> {{ student.height_cm }} cm</p>
+<p><b>Weight:</b> {{ student.weight_kg }} kg</p>
+<p><b>BMI:</b> {{ student.bmi }}</p>
+<p><b>Status:</b> {{ student.bmi_status }}</p>
+
+{% if student.bmi_status == "Underweight" or student.bmi_status == "Obese" %}
+<div class="alert alert-danger">
+  ⚠️ Alert: {{ student.name }} has an inappropriate BMI. Check meal plan.
+</div>
+{% endif %}
+{% endblock %}
