@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add Student</h2>
+<form method="POST">{% csrf_token %}
+  <input type="text" name="student_id" placeholder="Student ID" class="form-control mb-2" required>
+  <input type="text" name="name" placeholder="Student Name" class="form-control mb-2" required>
+  <input type="number" step="0.1" name="height" placeholder="Height (cm)" class="form-control mb-2" required>
+  <input type="number" step="0.1" name="weight" placeholder="Weight (kg)" class="form-control mb-2" required>
+  <button class="btn btn-primary">Save</button>
+</form>
+{% endblock %}
